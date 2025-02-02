@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { TechStackCarousel } from './TechStackCarousel';
+// import { TechStackCarousel } from './TechStackCarousel';
 import { TypingEffect } from './TypingEffect'
 
 export function About() {
@@ -94,7 +94,7 @@ export function About() {
             >
               Technologies I Work With
             </motion.h3>
-            <TechStackCarousel />
+            {/* <TechStackCarousel /> */}
           </div>
         </motion.div>
       </div>
