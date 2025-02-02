@@ -1,23 +1,23 @@
-'use client';
+//'use client';
 import { useState, useEffect } from 'react';
 import type { ReactElement } from 'react';
 import { About } from '@/components/sections/about/About';
 
 export default function Home(): ReactElement {
-  const [isClient, setIsClient] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
   }, []);
 
 
-if(!isClient){
+if(!mounted){
   return (
     <div className="min-h-screen bg-[#0B1221]"></div>
   ); // or a loading spinner
 }
   return (
-    <main className="min-h-screen bg-[#0B1221] text-white">
+    <main className="min-h-screen bg-[#0B1221] text-white suppressHydrationWarning">
       <About />
     </main>
   );

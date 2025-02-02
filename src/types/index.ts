@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 // Core type definitions for the application
 
 // Navigation sections of the website
@@ -38,3 +39,13 @@ export interface MousePosition {
   x: number;
   y: number;
 } 
+
+export interface ReactTypingEffectProps {
+    text: string | string[];
+    speed?: number;
+    eraseSpeed?: number;
+    typingDelay?: number;
+    eraseDelay?: number;
+    cursorRenderer?: (cursor: string) => ReactElement;
+    displayTextRenderer?: (text: string) => ReactElement;
+  } 

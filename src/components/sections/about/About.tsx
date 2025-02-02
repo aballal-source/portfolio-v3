@@ -1,11 +1,10 @@
-'use client'
 import { motion } from 'framer-motion';
 import { TechStackCarousel } from './TechStackCarousel';
-import ReactTypingEffect from 'react-typing-effect';
+import { TypingEffect } from './TypingEffect'
 
 export function About() {
   return (
-    <section id="about" className="min-h-screen relative flex flex-col justify-center py-24">
+    <section id="about" className="min-h-screen relative flex flex-col justify-center py-24 suppressHydrationWarning">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,20 +32,7 @@ export function About() {
     <div>
       I&apos;m a(n){' '}
       <span className="text-white font-semibold relative">
-        <ReactTypingEffect
-          text={[
-            'Full Stack Developer',
-            'Open Source Contributor',
-            'Tech Enthusiast',
-            'Aspiring Software Architect'
-          ]}
-          speed={100}
-          eraseSpeed={50}
-          typingDelay={500}
-          eraseDelay={3000}
-          cursorRenderer={(cursor: string) => <span>{cursor}</span>}
-          displayTextRenderer={(text: string) => <span>{text}</span>}
-        />
+        <TypingEffect/>
         <motion.span
           className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#00D2BE]"
           initial={{ scaleX: 0 }}
