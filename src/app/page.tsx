@@ -1,4 +1,4 @@
-//'use client';
+'use client';
 import { useState, useEffect } from 'react';
 import type { ReactElement } from 'react';
 import { About } from '@/components/sections/about/About';
