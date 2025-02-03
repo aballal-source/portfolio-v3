@@ -16,7 +16,7 @@ export function TypingEffect() {
           'Full Stack Developer',
           'Open Source Contributor',
           'Tech Enthusiast',
-          'Aspiring Software Architect'
+          'Aspiring AI Software Engineer'
         ]}
         speed={100}
         eraseSpeed={50}
