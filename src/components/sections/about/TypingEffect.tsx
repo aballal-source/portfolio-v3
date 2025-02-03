@@ -1,9 +1,17 @@
 'use client';
 import dynamic from 'next/dynamic';
-// import type { ReactTypingEffectProps } from '@/types';  // Not needed if we're not typing the dynamic import
+
+// Define the props interface if not provided by the package
+interface ReactTypingEffectProps {
+  text: string[];
+  speed: number;
+  eraseSpeed: number;
+  typingDelay: number;
+  eraseDelay: number;
+}
 
 // Import the component with no SSR
-const ReactTypingEffect = dynamic(() => import('react-typing-effect'), {
+const ReactTypingEffect = dynamic<ReactTypingEffectProps>(() => import('react-typing-effect'), {
   ssr: false,
   loading: () => <span>Full Stack Developer</span> // Fallback content
 });
@@ -25,4 +33,4 @@ export function TypingEffect() {
       />
     </div>
   );
-} 
+}
