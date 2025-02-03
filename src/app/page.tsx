@@ -1,24 +1,25 @@
 'use client';
 import { useState, useEffect } from 'react';
 import type { ReactElement } from 'react';
-import { useScrollTracking } from '@/hooks/useScrollTracking';
+// import { useScrollTracking } from '@/hooks/useScrollTracking'; 1997
+
 
 // Components
 // import { ProfileCard } from '@/components/profile/ProfileCard';
-import { NavigationMenu } from '@/components/navigation/NavigationMenu';
+// import { NavigationMenu } from '@/components/navigation/NavigationMenu'; 1997
 // import { About } from '@/components/sections/about/About';
 // import { Projects } from '@/components/sections/projects/Projects';
 // import { Contact } from '@/components/sections/contact/Contact';
 
 export default function Home(): ReactElement {
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const { isScrolled, activeSection } = useScrollTracking();
+  // const { isScrolled, activeSection } = useScrollTracking(); 1997
 
-  // Define handleSectionChange function
-  const handleSectionChange = (section: string) => {
-    const element = document.getElementById(section);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // Define handleSectionChange function1997
+  // const handleSectionChange = (section: string) => {
+  //   const element = document.getElementById(section);
+  //   element?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   useEffect(() => {
     setIsMounted(true);
@@ -32,12 +33,12 @@ export default function Home(): ReactElement {
 
   return (
     <div className="min-h-screen bg-[#0B1221] text-white">
-      <NavigationMenu 
+      {/* <NavigationMenu 1997
         activeSection={activeSection}
         onSectionChange={handleSectionChange}
         isScrolled={isScrolled}
         isLandingVisible={!isScrolled}
-      />
+      /> */}
       <main className="pt-16">
         <section id="profile" className="py-12">
           {/* <ProfileCard isScrolled={isScrolled} /> */}Hello, world!
