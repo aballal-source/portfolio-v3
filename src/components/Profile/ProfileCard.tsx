@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import profileImage from '@/components/Profile/ProfileImage.jpg';
+import profileImage from '@/components/profile/ProfileImage.jpg';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import { RiTwitterXLine } from 'react-icons/ri';
 
