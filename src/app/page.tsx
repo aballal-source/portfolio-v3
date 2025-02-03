@@ -7,7 +7,7 @@ import type { ReactElement } from 'react';
 // Components
 // import { ProfileCard } from '@/components/profile/ProfileCard';
 // import { NavigationMenu } from '@/components/navigation/NavigationMenu'; 1997
-// import { About } from '@/components/sections/about/About';
+import { About } from '@/components/sections/about/About';
 // import { Projects } from '@/components/sections/projects/Projects';
 // import { Contact } from '@/components/sections/contact/Contact';
 
@@ -41,10 +41,10 @@ export default function Home(): ReactElement {
       /> */}
       <main className="pt-16">
         <section id="profile" className="py-12">
-          {/* <ProfileCard isScrolled={isScrolled} /> */}Hello, world!
+          {/* <ProfileCard isScrolled={isScrolled} /> 1997 */}
         </section>
         <section id="about" className="py-12">
-          {/* <About /> */}
+          <About />
         </section>
         <section id="projects" className="py-12">
           {/* <Projects /> */}
