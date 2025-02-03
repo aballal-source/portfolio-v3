@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { TypingEffect } from './TypingEffect';
+import { TechStackCarousel } from './TechStackCarousel';
 
 export function About() {
   return (
@@ -49,13 +50,7 @@ export function About() {
               </p>
             </div>
           </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-//***************************************************************************************** */
-          {/* Tech Stack Section
+          {/* Tech Stack Section*/}
           <div className="pt-12">
             <motion.h3
               initial={{ opacity: 0 }}
@@ -64,11 +59,11 @@ export function About() {
               className="text-2xl lg:ml-[150px] font-semibold mb-8 text-white"
             >
               Technologies I Work With
-            </motion.h3> */}
-            {/* <TechStackCarousel /> */}
-//           </div>
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// }
+            </motion.h3>
+            <TechStackCarousel />
+            </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
