@@ -1,14 +1,6 @@
-'use client'
+'use client';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-// import { TechStackCarousel } from './TechStackCarousel';
-// import { TypingEffect } from './TypingEffect'
-
-// src/components/Sections/About/About.tsx
-const TypingEffect = dynamic(() => import('./TypingEffect').then(mod => mod.TypingEffect), {
-  ssr: false,
-  loading: () => <span>Full Stack Developer</span>
-});
+import { TypingEffect } from './TypingEffect';
 
 export function About() {
   return (

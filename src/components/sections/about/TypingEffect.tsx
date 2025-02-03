@@ -1,36 +1,41 @@
 'use client';
-import dynamic from 'next/dynamic';
-
-// Define the props interface if not provided by the package
-interface ReactTypingEffectProps {
-  text: string[];
-  speed: number;
-  eraseSpeed: number;
-  typingDelay: number;
-  eraseDelay: number;
-}
-
-// Import the component with no SSR
-const ReactTypingEffect = dynamic<ReactTypingEffectProps>(() => import('react-typing-effect'), {
-  ssr: false,
-  loading: () => <span>Full Stack Developer</span> // Fallback content
-});
+import React, { useState, useEffect, useMemo } from 'react';
 
 export function TypingEffect() {
-  return (
-    <div suppressHydrationWarning>
-      <ReactTypingEffect
-        text={[
-          'Full Stack Developer',
-          'Open Source Contributor',
-          'Tech Enthusiast',
-          'Aspiring AI Software Engineer'
-        ]}
-        speed={100}
-        eraseSpeed={50}
-        typingDelay={500}
-        eraseDelay={3000}
-      />
-    </div>
-  );
+  const texts = useMemo(() => [
+    'Full Stack Developer',
+    'Open Source Contributor',
+    'Tech Enthusiast',
+    'Aspiring AI Software Engineer'
+  ], []);
+
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isErasing, setIsErasing] = useState(false);
+
+  useEffect(() => {
+    const currentText = texts[currentIndex];
+    let timeout: NodeJS.Timeout;
+
+    if (isErasing) {
+      timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev.slice(0, -1));
+        if (displayedText === '') {
+          setIsErasing(false);
+          setCurrentIndex((prev) => (prev + 1) % texts.length);
+        }
+      }, 50);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayedText((prev) => currentText.slice(0, prev.length + 1));
+        if (displayedText === currentText) {
+          setTimeout(() => setIsErasing(true), 3000);
+        }
+      }, 100);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isErasing, currentIndex, texts]);
+
+  return <span>{displayedText}</span>;
 }
