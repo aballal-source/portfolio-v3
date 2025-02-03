@@ -41,6 +41,12 @@ export function About() {
                   </span>
                 </div>
               </motion.div>
+              <p>
+                I am passionate about building scalable software, creating effective solutions, and learning every day to grow professionally in the IT field. With a strong foundation in full-stack development, I have experience in various technologies and frameworks.
+              </p>
+              <p>
+                My journey in tech has been driven by a love for problem-solving and a desire to build cool projects. I am always eager to take on new challenges and collaborate with others to create impactful software.
+              </p>
             </div>
           </div>
         </motion.div>
