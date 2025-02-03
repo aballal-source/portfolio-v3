@@ -8,8 +8,8 @@ import type { ReactElement } from 'react';
 // import { ProfileCard } from '@/components/profile/ProfileCard';
 // import { NavigationMenu } from '@/components/navigation/NavigationMenu'; 1997
 import { About } from '@/components/sections/about/About';
-import { Projects } from '@/components/sections/projects/Projects';
-// import { Contact } from '@/components/sections/contact/Contact';
+// import { Projects } from '@/components/sections/projects/Projects'; 1997
+import { Contact } from '@/components/sections/contact/Contact';
 
 export default function Home(): ReactElement {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -47,10 +47,10 @@ export default function Home(): ReactElement {
           <About />
         </section>
         <section id="projects" className="py-12">
-          <Projects />
+          {/* <Projects /> 1997*/}
         </section>
         <section id="contact" className="py-12">
-          {/* <Contact /> */}
+          <Contact />
         </section>
       </main>
     </div>
