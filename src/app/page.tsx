@@ -4,11 +4,11 @@ import type { ReactElement } from 'react';
 import { useScrollTracking } from '@/hooks/useScrollTracking';
 
 // Components
-import { ProfileCard } from '@/components/profile/ProfileCard';
+// import { ProfileCard } from '@/components/profile/ProfileCard';
 import { NavigationMenu } from '@/components/navigation/NavigationMenu';
 import { About } from '@/components/sections/about/About';
-import { Projects } from '@/components/sections/projects/Projects';
-import { Contact } from '@/components/sections/contact/Contact';
+// import { Projects } from '@/components/sections/projects/Projects';
+// import { Contact } from '@/components/sections/contact/Contact';
 
 export default function Home(): ReactElement {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -40,16 +40,16 @@ export default function Home(): ReactElement {
       />
       <main className="pt-16">
         <section id="profile" className="py-12">
-          <ProfileCard isScrolled={isScrolled} />
+          {/* <ProfileCard isScrolled={isScrolled} /> */}
         </section>
         <section id="about" className="py-12">
           <About />
         </section>
         <section id="projects" className="py-12">
-          <Projects />
+          {/* <Projects /> */}
         </section>
         <section id="contact" className="py-12">
-          <Contact />
+          {/* <Contact /> */}
         </section>
       </main>
     </div>
