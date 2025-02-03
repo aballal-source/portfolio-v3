@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 // import { TechStackCarousel } from './TechStackCarousel';
-import { TypingEffect } from './TypingEffect'
+// import { TypingEffect } from './TypingEffect'
 
 export function About() {
   return (
-    <section id="about" className="min-h-screen relative flex flex-col justify-center py-24 suppressHydrationWarning">
+    // <section id="about" className="min-h-screen relative flex flex-col justify-center py-24">
+      <section className="min-h-screen relative flex flex-col justify-center py-24">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,7 +24,7 @@ export function About() {
             </h2>
             
             {/* Animated Description */}
-            <div className="text-lg md:text-xl text-zinc-400 space-y-4">
+            {/* <div className="text-lg md:text-xl text-zinc-400 space-y-4">
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -81,10 +82,16 @@ export function About() {
     {' '}
     and exploring new technologies.
   </motion.p>
-</div>
+*/}
+  <div className="text-lg md:text-xl text-zinc-400">
+
+              <p>Full Stack Developer</p>
+
+
 </div>
 
-          {/* Tech Stack Section */}
+
+          {/* Tech Stack Section
           <div className="pt-12">
             <motion.h3
               initial={{ opacity: 0 }}
@@ -93,7 +100,7 @@ export function About() {
               className="text-2xl lg:ml-[150px] font-semibold mb-8 text-white"
             >
               Technologies I Work With
-            </motion.h3>
+            </motion.h3> */}
             {/* <TechStackCarousel /> */}
           </div>
         </motion.div>
