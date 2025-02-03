@@ -13,6 +13,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         hidden: { opacity: 0, y: 20 },
         show: { opacity: 1, y: 0 }
       }}
+      initial="hidden"
+      animate="show"
+      transition={{ delay: index * 0.1 }} // Use index for staggered animation
       className="group relative bg-darkLight rounded-xl overflow-hidden border border-primary/10 hover:border-primary/30 transition-all duration-300"
     >
       {/* Project Image */}
