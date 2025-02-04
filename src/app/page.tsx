@@ -6,7 +6,7 @@ import type { ReactElement } from 'react';
 
 // Components
 // import { ProfileCard } from '@/components/profile/ProfileCard';
-import { NavigationBar } from '@/components/navigation/NavigationBar';
+// import { NavigationBar } from '@/components/navigation/NavigationBar';
 import { About } from '@/components/sections/about/About';
 import { Projects } from '@/components/sections/projects/Projects';
 import { Contact } from '@/components/sections/contact/Contact';
@@ -15,7 +15,7 @@ import { Contact } from '@/components/sections/contact/Contact';
 export default function Home(): ReactElement {
   return (
     <>
-      <NavigationBar />
+      {/* <NavigationBar /> */}
       <div className="min-h-screen bg-[#0B1221] text-white">
         <main className="pt-16">
           <section id="profile" className="py-12 hidden lg:block">
