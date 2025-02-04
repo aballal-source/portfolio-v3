@@ -1,6 +1,6 @@
 'use client';
-import Link from 'next/link';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
