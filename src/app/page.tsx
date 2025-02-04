@@ -4,18 +4,19 @@ import type { ReactElement } from 'react';
 import { useState, useEffect } from 'react';
 // import { useScrollTracking } from '@/hooks/useScrollTracking'; 1997
 import Link from 'next/link';
+import { About } from '@/components/sections/about/About';
+import { Projects } from '@/components/sections/projects/Projects';
+import { Contact } from '@/components/sections/contact/Contact';
+import { ProfileCard } from '@/components/profile/ProfileCard';
 
 // Components
 // import { ProfileCard } from '@/components/profile/ProfileCard';
 // import { NavigationBar } from '@/components/navigation/NavigationBar';
-import { About } from '@/components/sections/about/About';
-import { Projects } from '@/components/sections/projects/Projects';
-import { Contact } from '@/components/sections/contact/Contact';
-// import { ProfileCard } from '@/components/profile/ProfileCard';
 
 export default function Home(): ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
 
   const handleScroll = () => {
     const sections = ['home', 'about', 'projects', 'contact'];
@@ -30,6 +31,12 @@ export default function Home(): ReactElement {
     }, 'home');
 
     setActiveSection(currentSection);
+
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      const rect = aboutSection.getBoundingClientRect();
+      setIsProfileVisible(rect.top <= window.innerHeight && rect.bottom >= 0);
+    }
   };
 
   useEffect(() => {
@@ -106,9 +113,7 @@ export default function Home(): ReactElement {
 
       <div className="min-h-screen bg-[#0B1221] text-white">
         <main className="pt-16">
-          <section id="profile" className="py-12 hidden lg:block">
-            {/* <ProfileCard isScrolled={isScrolled} /> */}
-          </section>
+          <ProfileCard isVisible={isProfileVisible} />
           <section id="about" className="py-12">
             <About />
           </section>

@@ -6,7 +6,7 @@ import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import { RiTwitterXLine } from 'react-icons/ri';
 
 interface ProfileCardProps {
-  isScrolled: boolean;
+  isVisible: boolean;
 }
 
 function ProfileImage() {
@@ -64,22 +64,21 @@ function SocialLinks() {
   );
 }
 
-export function ProfileCard({ isScrolled }: ProfileCardProps) {
+export function ProfileCard({ isVisible }: ProfileCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -100 }}
-      animate={{ 
-        opacity: isScrolled ? 0 : 1,
-        x: isScrolled ? -100 : 0,
-        scale: isScrolled ? 0.95 : 1,
-        pointerEvents: isScrolled ? 'none' : 'auto'
+      animate={{
+        opacity: isVisible ? 1 : 0,
+        x: isVisible ? 0 : -100,
+        scale: isVisible ? 1 : 0.95,
+        pointerEvents: isVisible ? 'auto' : 'none',
       }}
       transition={{ duration: 0.3 }}
       className="fixed left-8 top-24 z-50 w-[380px] xl:w-[420px] hidden lg:block"
     >
       <div className="relative group">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primaryLight/20 rounded-lg blur-xl transition-all duration-300 group-hover:blur-2xl" />
-        
         <div className="relative bg-darkLight/90 border border-primary/20 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
           <ProfileCardHeader />
           <ProfileImage />
