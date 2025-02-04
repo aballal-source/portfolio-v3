@@ -14,8 +14,8 @@ const getIcon = (iconName: string) => {
 
 export function TechStackCarousel() {
   // Debug: Log available icons and what we're trying to use
-  console.log('Available icons:', Object.keys(SiIcons));
-  console.log('Technologies:', technologies);
+  // console.log('Available icons:', Object.keys(SiIcons));
+  // console.log('Technologies:', technologies);
 
   return (
     <motion.div
