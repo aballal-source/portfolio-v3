@@ -5,22 +5,16 @@ import { About } from '@/components/sections/about/About';
 import { Projects } from '@/components/sections/projects/Projects';
 import { Contact } from '@/components/sections/contact/Contact';
 import Link from 'next/link';
-import Image from 'next/image';
-import profileImage from '@/components/profile/ProfileImage.jpg';
-import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
-import { RiTwitterXLine } from 'react-icons/ri';
+// import Image from 'next/image';
+// import profileImage from '@/components/profile/ProfileImage.jpg';
+// import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
+// import { RiTwitterXLine } from 'react-icons/ri';
+
 
 export default function Home(): ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProfileVisible, setIsProfileVisible] = useState(true);
 
   const handleScroll = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      const rect = aboutSection.getBoundingClientRect();
-      const halfwayPoint = rect.height / 2;
-      setIsProfileVisible(rect.top <= window.innerHeight && rect.bottom - halfwayPoint >= 0);
-    }
   };
 
   useEffect(() => {
@@ -29,41 +23,41 @@ export default function Home(): ReactElement {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const ProfileCard = () => (
-    <div className="bg-darkLight/90 border border-primary/20 rounded-lg shadow-xl p-4 mb-8">
-      <div className="flex items-center">
-        <Image
-          src={profileImage}
-          alt="Ahmed Ballal"
-          width={80}
-          height={80}
-          className="rounded-full"
-        />
-        <div className="ml-4">
-          <h1 className="text-xl font-bold text-primary">Ahmed Ballal</h1>
-          <p className="text-sm text-text-primary">Software Engineer</p>
-        </div>
-      </div>
-      <div className="flex justify-center gap-4 mt-4">
-        {[
-          { icon: <FiGithub size={20} />, href: "https://github.com/aballal-source" },
-          { icon: <FiLinkedin size={20} />, href: "https://linkedin.com/in/aballal" },
-          { icon: <RiTwitterXLine size={20} />, href: "https://x.com/9ballal" },
-          { icon: <FiInstagram size={20} />, href: "https://instagram.com/ahmed_ballal" }
-        ].map((item, index) => (
-          <a
-            key={index}
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-secondary hover:text-primary transition-colors duration-300"
-          >
-            {item.icon}
-          </a>
-        ))}
-      </div>
-    </div>
-  );
+  // const ProfileCard = () => (
+  //   <div className="bg-darkLight/90 border border-primary/20 rounded-lg shadow-xl p-4 mb-8">
+  //     <div className="flex items-center">
+  //       <Image
+  //         src={profileImage}
+  //         alt="Ahmed Ballal"
+  //         width={80}
+  //         height={80}
+  //         className="rounded-full"
+  //       />
+  //       <div className="ml-4">
+  //         <h1 className="text-xl font-bold text-primary">Ahmed Ballal</h1>
+  //         <p className="text-sm text-text-primary">Software Engineer</p>
+  //       </div>
+  //     </div>
+  //     <div className="flex justify-center gap-4 mt-4">
+  //       {[
+  //         { icon: <FiGithub size={20} />, href: "https://github.com/aballal-source" },
+  //         { icon: <FiLinkedin size={20} />, href: "https://linkedin.com/in/aballal" },
+  //         { icon: <RiTwitterXLine size={20} />, href: "https://x.com/9ballal" },
+  //         { icon: <FiInstagram size={20} />, href: "https://instagram.com/ahmed_ballal" }
+  //       ].map((item, index) => (
+  //         <a
+  //           key={index}
+  //           href={item.href}
+  //           target="_blank"
+  //           rel="noopener noreferrer"
+  //           className="text-text-secondary hover:text-primary transition-colors duration-300"
+  //         >
+  //           {item.icon}
+  //         </a>
+  //       ))}
+  //     </div>
+  //   </div>
+  // );
 
   return (
     <>
@@ -75,7 +69,7 @@ export default function Home(): ReactElement {
                 Ahmed Ballal
               </Link>
             </div>
-            <div className="flex-1 flex justify-center space-x-4">
+            <div className="flex-1 flex justify-center space-x-4 hidden md:flex">
               {['about', 'projects', 'contact'].map((section) => (
                 <Link
                   key={section}
@@ -131,7 +125,7 @@ export default function Home(): ReactElement {
 
       <div className="min-h-screen bg-[#0B1221] text-white relative z-10">
         <main className="pt-16">
-          {isProfileVisible && <ProfileCard />}
+          {/* {isProfileVisible && <ProfileCard />} */}
           <section id="about" className="py-12">
             <About />
           </section>
