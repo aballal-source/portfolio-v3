@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { About } from '@/components/sections/about/About';
 import { Projects } from '@/components/sections/projects/Projects';
 import { Contact } from '@/components/sections/contact/Contact';
-import { motion } from 'framer-motion';
+//import { motion } from 'framer-motion';
 import Image from 'next/image';
 import profileImage from '@/components/profile/ProfileImage.jpg';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
@@ -37,62 +37,39 @@ export default function Home(): ReactElement {
   }, []);
 
   const ProfileCard = () => (
-    <motion.div
-      initial={{ opacity: 0, x: -100 }}
-      animate={{
-        opacity: isProfileVisible ? 1 : 0,
-        x: isProfileVisible ? 0 : -100,
-        scale: isProfileVisible ? 1 : 0.95,
-        pointerEvents: isProfileVisible ? 'auto' : 'none',
-      }}
-      exit={{ opacity: 0, x: -100, scale: 0.95 }}
-      transition={{ duration: 0.3 }}
-      className="fixed left-8 top-24 z-40 w-[300px] xl:w-[380px] hidden lg:block"
-    >
-      <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primaryLight/20 rounded-lg blur-xl transition-all duration-300 group-hover:blur-2xl" />
-        <div className="relative bg-darkLight/90 border border-primary/20 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
-          <div className="p-5 bg-darkLight/90">
-            <h1 className="text-3xl font-bold text-primary mb-2 drop-shadow-lg">
-              Ahmed Ballal
-            </h1>
-            <p className="text-lg text-text-primary font-medium drop-shadow-md">
-              Software Engineer
-            </p>
-          </div>
-          <div className="relative h-[300px] overflow-hidden flex flex-col justify-start">
-            <Image
-              priority={true}
-              src={profileImage}
-              alt="Ahmed Ballal"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-center transform group-hover:scale-105 transition-transform duration-300 opacity-90 filter brightness-75 contrast-125"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-darkLight via-darkLight/95 to-transparent z-10" />
-          </div>
-          <div className="flex justify-center gap-6 p-4 border-t border-primary/10">
-            {[
-              { icon: <FiGithub size={22} />, href: "https://github.com/aballal-source" },
-              { icon: <FiLinkedin size={22} />, href: "https://linkedin.com/in/aballal" },
-              { icon: <RiTwitterXLine size={22} />, href: "https://x.com/9ballal" },
-              { icon: <FiInstagram size={22} />, href: "https://instagram.com/ahmed_ballal" }
-            ].map((item, index) => (
-              <motion.a
-                key={index}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-text-secondary hover:text-primary transition-colors duration-300"
-                whileHover={{ y: -2 }}
-              >
-                {item.icon}
-              </motion.a>
-            ))}
-          </div>
+    <div className="bg-darkLight/90 border border-primary/20 rounded-lg shadow-xl p-4 mb-8">
+      <div className="flex items-center">
+        <Image
+          src={profileImage}
+          alt="Ahmed Ballal"
+          width={80}
+          height={80}
+          className="rounded-full"
+        />
+        <div className="ml-4">
+          <h1 className="text-xl font-bold text-primary">Ahmed Ballal</h1>
+          <p className="text-sm text-text-primary">Software Engineer</p>
         </div>
       </div>
-    </motion.div>
+      <div className="flex justify-center gap-4 mt-4">
+        {[
+          { icon: <FiGithub size={20} />, href: "https://github.com/aballal-source" },
+          { icon: <FiLinkedin size={20} />, href: "https://linkedin.com/in/aballal" },
+          { icon: <RiTwitterXLine size={20} />, href: "https://x.com/9ballal" },
+          { icon: <FiInstagram size={20} />, href: "https://instagram.com/ahmed_ballal" }
+        ].map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-secondary hover:text-primary transition-colors duration-300"
+          >
+            {item.icon}
+          </a>
+        ))}
+      </div>
+    </div>
   );
 
   return (
@@ -105,7 +82,7 @@ export default function Home(): ReactElement {
                 Ahmed Ballal
               </Link>
             </div>
-            <div className="hidden md:flex space-x-4">
+            <div className="flex-1 flex justify-center space-x-4">
               {['about', 'projects', 'contact'].map((section) => (
                 <Link
                   key={section}
@@ -162,12 +139,10 @@ export default function Home(): ReactElement {
 
       <div className="min-h-screen bg-[#0B1221] text-white">
         <main className="pt-16">
-          <div className="flex flex-col lg:flex-row lg:space-x-8">
-            <ProfileCard />
-            <section id="about" className="py-12 flex-1 lg:ml-[320px]">
-              <About />
-            </section>
-          </div>
+          {isProfileVisible && <ProfileCard />}
+          <section id="about" className="py-12">
+            <About />
+          </section>
           <section id="projects" className="py-12">
             <Projects />
           </section>
