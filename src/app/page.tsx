@@ -1,21 +1,14 @@
 'use client';
-// import { useState, useEffect } from 'react';
-import type { ReactElement } from 'react';
 import { useState, useEffect } from 'react';
-// import { useScrollTracking } from '@/hooks/useScrollTracking'; 1997
-import Link from 'next/link';
+import type { ReactElement } from 'react';
 import { About } from '@/components/sections/about/About';
 import { Projects } from '@/components/sections/projects/Projects';
 import { Contact } from '@/components/sections/contact/Contact';
-//import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Image from 'next/image';
 import profileImage from '@/components/profile/ProfileImage.jpg';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import { RiTwitterXLine } from 'react-icons/ri';
-
-// Components
-// import { ProfileCard } from '@/components/profile/ProfileCard';
-// import { NavigationBar } from '@/components/navigation/NavigationBar';
 
 export default function Home(): ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -119,7 +112,6 @@ export default function Home(): ReactElement {
           </div>
         </div>
 
-        {/* Mobile menu, show/hide based on menu state */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -137,7 +129,7 @@ export default function Home(): ReactElement {
         )}
       </nav>
 
-      <div className="min-h-screen bg-[#0B1221] text-white">
+      <div className="min-h-screen bg-[#0B1221] text-white relative z-10">
         <main className="pt-16">
           {isProfileVisible && <ProfileCard />}
           <section id="about" className="py-12">
