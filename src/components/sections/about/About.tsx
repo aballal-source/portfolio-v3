@@ -31,7 +31,7 @@ export function About() {
               >
                 <div suppressHydrationWarning>
                   I&apos;m a(n){' '}
-                  <span className="text-white font-semibold relative">
+                  <span className="text-lime-300 font-semibold relative">
                     <TypingEffect />
                     <motion.span
                       className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#00D2BE]"
@@ -56,12 +56,13 @@ export function About() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl lg:ml-[150px] font-semibold mb-8 text-white"
+              className="text-2xl lg:ml-[150px] font-semibold mb-8 text-red-600"
             >
-              Technologies I Work With
+              Technologies I work with:
             </motion.h3>
             <TechStackCarousel />
             </div>
+
         </motion.div>
       </div>
     </section>

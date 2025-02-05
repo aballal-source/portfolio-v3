@@ -5,8 +5,8 @@ import { About } from '@/components/sections/about/About';
 import { Projects } from '@/components/sections/projects/Projects';
 import { Contact } from '@/components/sections/contact/Contact';
 import Link from 'next/link';
-// import Image from 'next/image';
-// import profileImage from '@/components/profile/ProfileImage.jpg';
+import Image from 'next/image';
+import profileImage from '@/components/profile/ProfileImage.jpg';
 // import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 // import { RiTwitterXLine } from 'react-icons/ri';
 
@@ -65,14 +65,22 @@ export default function Home(): ReactElement {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
+              <Image
+                src={profileImage}
+                alt="Profile Image"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
               <Link href="/" className="text-primary text-2xl font-bold lg:hidden">
                 Ahmed Ballal
               </Link>
             </div>
-            <div className="flex-1 flex justify-center space-x-4 hidden md:flex">
+            <div className="flex-1 justify-center space-x-4 hidden md:flex">
               {['about', 'projects', 'contact'].map((section) => (
                 <Link
                   key={section}
+
                   href={`#${section}`}
                   className={`text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium`}
                 >
