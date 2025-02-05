@@ -6,6 +6,7 @@ import { Projects } from '@/components/sections/projects/Projects';
 import { Contact } from '@/components/sections/contact/Contact';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ParticleBackground } from '@/components/sections/ParticleBackground';
 // import profileImage from '@/components/profile/ProfileImage.jpg';
 // import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 // import { RiTwitterXLine } from 'react-icons/ri';
@@ -62,6 +63,7 @@ export default function Home(): ReactElement {
   return (
     <>
       <nav className="bg-darkLight/90 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md">
+      <ParticleBackground />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -88,6 +90,7 @@ export default function Home(): ReactElement {
                 </Link>
               ))}
             </div>
+            
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -130,7 +133,7 @@ export default function Home(): ReactElement {
           </div>
         )}
       </nav>
-
+        
       <div className="min-h-screen bg-[#0B1221] text-white relative z-10">
         <main className="pt-16">
           {/* {isProfileVisible && <ProfileCard />} */}
