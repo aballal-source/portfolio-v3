@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Configure CORS to allow requests from your frontend
-app.use(cors({ origin: 'https://portfolio-v3-z1yp.vercel.app/' }));
+app.use(cors({ origin: ['https://portfolio-v3-z1yp.vercel.app', 'https://portfolio-v3-ywm5.vercel.app', 'https://portfolio-v3-theta-nine.vercel.app'] }));
 app.use(bodyParser.json());
 
 // Endpoint to send messages to Discord

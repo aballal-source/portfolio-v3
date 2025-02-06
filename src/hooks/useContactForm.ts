@@ -59,8 +59,14 @@ export function useContactForm() {
       content: `New message from ${formData.name} (${formData.email}):\n${formData.message}`
     };
 
-    try {
-      const response = await fetch('https://portfolio-v3-z1yp.vercel.app/send-to-discord', {
+    const urls = [
+      'https://portfolio-v3-z1yp.vercel.app/send-to-discord',
+      'https://portfolio-v3-ywm5.vercel.app/send-to-discord',
+      'https://portfolio-v3-theta-nine.vercel.app/send-to-discord'
+    ];
+
+    for(let url of urls) {
+      const response = await fetch(url,  {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
