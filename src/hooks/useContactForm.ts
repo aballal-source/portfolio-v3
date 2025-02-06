@@ -60,7 +60,7 @@ export function useContactForm() {
     };
 
     try {
-      const response = await fetch('portfolio-v3-z1yp-b763wge2q-aballal-sources-projects.vercel.app/send-to-discord', {
+      const response = await fetch('portfolio-v3-z1yp.vercel.app/send-to-discord', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
