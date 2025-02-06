@@ -65,20 +65,23 @@ export function useContactForm() {
       'https://portfolio-v3-theta-nine.vercel.app/send-to-discord'
     ];
 
-    for(let url of urls) {
-      const response = await fetch(url,  {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(messageContent)
-      });
-
-      if (response.ok) {
-        setFormStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        setFormStatus('error');
+    try {
+      // Loop through the URLs and send the POST request
+      for (const url of urls) {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(messageContent)
+        });
+    
+        if (response.ok) {
+          setFormStatus('success');
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          setFormStatus('error');
+        }
       }
     } catch (error) {
       console.error('Error sending message to Discord:', error);
