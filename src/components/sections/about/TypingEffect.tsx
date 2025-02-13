@@ -6,7 +6,8 @@ export function TypingEffect() {
     'Full Stack Developer',
     'Open Source Contributor',
     'Tech Enthusiast',
-    'Quality Engineer'
+    'Quality Engineer',
+    'Aspiring AI/ML Engineer'
   ], []);
 
   const [displayedText, setDisplayedText] = useState('');
